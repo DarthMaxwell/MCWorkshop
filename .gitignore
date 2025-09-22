@@ -1,0 +1,93 @@
+############################
+# OS / Editor junk
+############################
+.DS_Store
+Thumbs.db
+*.log
+
+############################
+# Visual Studio / .NET
+############################
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+[Bb]uild/
+[Bb]uild[Ll]og.*
+
+# Rider / JetBrains
+.idea/
+
+# Other files
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio cache/options
+.vscode/
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlh
+*.tli
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*_i.asm
+*_p.asm
+
+# Environment configs
+*.env
+*.env.*
+
+############################
+# Node / React / TypeScript
+############################
+node_modules/
+dist/
+build/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+
+# Testing
+coverage/
+*.lcov
+
+# IDE
+*.swp
+*.swo
+
+############################
+# Others
+############################
+# Local dev secrets
+*.local
+*.secret
+
+# Docker / container stuff
+*.pid
+*.seed
+docker-compose.override.yml

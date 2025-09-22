@@ -1,0 +1,21 @@
+.Intro {
+    max-width: 800px;
+    margin: 40px auto; /* center on page */
+    padding: 20px;
+    text-align: center; /* center content */
+}
+
+    .Intro a {
+        color: #0077cc;
+        text-decoration: none;
+    }
+
+.Intro::after {
+    content: "";
+    display: block;
+    margin: 30px auto 0;
+    width: 60%;
+    height: 2px;
+    background: #ddd;
+    border-radius: 1px;
+}

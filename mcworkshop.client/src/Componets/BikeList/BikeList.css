@@ -1,0 +1,6 @@
+.BikeList {
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping onto new lines */
+    justify-content: center;
+    gap: 20px; /* spacing between cards */
+}

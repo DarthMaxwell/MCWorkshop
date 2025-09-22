@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36401.2 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "mcworkshop.client", "mcworkshop.client\mcworkshop.client.esproj", "{C06B102A-A366-03E5-0426-DB542C2E44DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MCWorkshop.Server", "MCWorkshop.Server\MCWorkshop.Server.csproj", "{2C9A589A-4F19-4154-9F0E-729E5BCC0CE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C06B102A-A366-03E5-0426-DB542C2E44DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C06B102A-A366-03E5-0426-DB542C2E44DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C06B102A-A366-03E5-0426-DB542C2E44DB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C06B102A-A366-03E5-0426-DB542C2E44DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C06B102A-A366-03E5-0426-DB542C2E44DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C06B102A-A366-03E5-0426-DB542C2E44DB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2C9A589A-4F19-4154-9F0E-729E5BCC0CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9A589A-4F19-4154-9F0E-729E5BCC0CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9A589A-4F19-4154-9F0E-729E5BCC0CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9A589A-4F19-4154-9F0E-729E5BCC0CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E953AB79-ABEA-418A-8706-509F78D5EB9B}
+	EndGlobalSection
+EndGlobal

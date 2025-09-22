@@ -1,0 +1,23 @@
+.Bike {
+    width: 300px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers horizontally */
+    justify-content: flex-start;
+    text-align: center; /* center text */
+    margin: 20px; /* centers card itself if "auto" is added */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd; /* subtle border */
+    border-radius: 12px; /* rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* shadow */
+    background-color: #fff; /* card background */
+}
+
+    .Bike img {
+        width: 280px;
+        height: 200px;
+        object-fit: cover; /* keeps image square */
+        margin-bottom: 10px;
+    }

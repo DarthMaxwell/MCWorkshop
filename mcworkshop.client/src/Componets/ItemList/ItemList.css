@@ -1,0 +1,6 @@
+.ItemList {
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping onto new lines */
+    justify-content: left; /* center can beused to center the row */
+    gap: 20px; /* spacing between cards */
+}

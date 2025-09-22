@@ -1,0 +1,8 @@
+@MCWorkshop.Server_HostAddress = http://localhost:5294
+
+GET {{MCWorkshop.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+GET {{MCWorkshop.Server_HostAddress}}/api/booking/availability
+Accept: application/json
