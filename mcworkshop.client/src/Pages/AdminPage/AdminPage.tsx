@@ -1,6 +1,12 @@
+import StorageForm from "../../Componets/StorageForm/StorageForm";
+
 function AdminPage() {
-  return (
-    <p>ooo welcome to the admin page</p>
+    return (
+        <div>
+            <p>ooo welcome to the admin page</p>
+            <p>List all the bookings and space</p>
+            <StorageForm/>
+        </div>
   );
 }
 

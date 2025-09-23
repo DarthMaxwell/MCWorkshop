@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import "./ItemList.css"
 
@@ -9,12 +10,16 @@ interface Items {
 }
 
 function ItemList() {
-    // This will latter pull data from the database
-    const items: Items[] = ([
-        { productName: "Hiflo Racing oil filter", productId: "HF138RC", stock: 4 },
-        { productName: "Chain kit", productId: "FHSDFG56", stock: 5 },
-        { productName: "Oil filter", productId: "HF248RC", stock: 10 },
-    ]);
+    const [items, setItems] = useState<Items[]>([]);
+
+    useEffect(() => {
+        // Later call api here
+        setItems([
+            { productName: "Hiflo Racing oil filter", productId: "HF138RC", stock: 4 },
+            { productName: "Chain kit", productId: "FHSDFG56", stock: 5 },
+            { productName: "Oil filter", productId: "HF248RC", stock: 10 },
+        ]);
+    }, []);
 
     return (
         <div className="ItemList">
