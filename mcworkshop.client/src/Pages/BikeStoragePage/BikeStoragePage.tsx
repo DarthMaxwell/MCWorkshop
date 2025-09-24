@@ -5,7 +5,7 @@ function BikeStoragePage() {
     const [space, setSpace] = useState<number>(0);
 
     useEffect(() => {
-        setSpace(5);
+        populateSpaceData();
     }, []);
 
     return (
@@ -24,7 +24,15 @@ function BikeStoragePage() {
 
             {space > 0 && (<StorageForm />)}
         </div>
-  );
+    );
+
+    async function populateSpaceData() {
+        const response = await fetch('api/storage/space')
+        if (response.ok) {
+            const data = await response.json();
+            setSpace(data);
+        }
+    }
 }
 
 export default BikeStoragePage;

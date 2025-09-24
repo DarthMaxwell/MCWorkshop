@@ -1,6 +1,14 @@
+using MCWorkshop.Server;
+using Microsoft.EntityFrameworkCore;
+using System;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = "server=localhost;database=MCWorkShop;user=worker;password=1234;";
+
 // Add services to the container.
+builder.Services.AddDbContext<WorkshopDbContext>(options =>
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

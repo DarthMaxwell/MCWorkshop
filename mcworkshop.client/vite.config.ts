@@ -54,6 +54,10 @@ export default defineConfig({
             '^/api/booking/availability': {
                 target,
                 secure: false
+            },
+            '^/api/storage/space': {
+                target,
+                secure: false
             }
         },
         port: parseInt(env.DEV_SERVER_PORT || '59912'),

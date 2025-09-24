@@ -6,3 +6,7 @@ Accept: application/json
 ###
 GET {{MCWorkshop.Server_HostAddress}}/api/booking/availability
 Accept: application/json
+
+###
+GET {{MCWorkshop.Server_HostAddress}}/api/storage/space
+Accept: application/json
