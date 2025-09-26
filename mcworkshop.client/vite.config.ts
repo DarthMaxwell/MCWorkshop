@@ -47,7 +47,7 @@ export default defineConfig({
     },
     server: {
         proxy: { //Need this to talk to backend
-            '^/weatherforecast': {
+            '^/api/inventory': {
                 target,
                 secure: false
             },
@@ -55,7 +55,15 @@ export default defineConfig({
                 target,
                 secure: false
             },
+            '^/api/storage': {
+                target,
+                secure: false
+            },            
             '^/api/storage/space': {
+                target,
+                secure: false
+            },
+            '^/api/bike': {
                 target,
                 secure: false
             }

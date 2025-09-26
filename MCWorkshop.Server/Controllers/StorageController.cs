@@ -31,10 +31,11 @@ namespace MCWorkshop.Server.Controllers {
 
         // POST: api/storage
         [HttpPost]
-        public async void PostStorage(Storage storage) {
-            // might just pass it little bit of everyhting and i need to create storage
+        public async Task<ActionResult<Storage>> PostStorage(Storage storage) {
             _context.StorageList.Add(storage);
             await _context.SaveChangesAsync();
+
+            return Ok(storage);
         }
     }
 }
