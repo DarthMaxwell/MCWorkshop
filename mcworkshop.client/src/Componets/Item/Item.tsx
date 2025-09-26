@@ -1,16 +1,16 @@
 import "./Item.css"
 
 interface Props {
-    //productPicture: string;
+    productPicture: string;
     productName: string;
     productId: string;
     stock: number;
 }
 
-const Item = ({ productName, productId, stock }: Props) => {
+const Item = ({ productPicture, productName, productId, stock }: Props) => {
     return (
         <div className="Item">
-            <img src="/hiflofilter.png" />
+            <img src={"/" + productPicture} />
             <h1>{productName}</h1>
             <p className="ProductId">{productId}</p>
             <p>Stock: {stock}</p>

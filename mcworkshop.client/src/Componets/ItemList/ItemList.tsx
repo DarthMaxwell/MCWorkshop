@@ -1,30 +1,38 @@
+import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import "./ItemList.css"
 
-interface Items {
-    //productPicture: string;
+interface Item {
+    productPicture: string;
     productName: string;
     productId: string;
     stock: number;
 }
 
 function ItemList() {
-    // This will latter pull data from the database
-    const items: Items[] = ([
-        { productName: "Hiflo Racing oil filter", productId: "HF138RC", stock: 4 },
-        { productName: "Chain kit", productId: "FHSDFG56", stock: 5 },
-        { productName: "Oil filter", productId: "HF248RC", stock: 10 },
-    ]);
+    const [inventory, setInventory] = useState<Item[]>([]);
+
+    useEffect(() => {
+        populateInventoryData();
+    }, []);
 
     return (
         <div className="ItemList">
-            {items.length > 0 ? items.map((item) =>
-            <Item productName={item.productName} productId={item.productId} stock={item.stock} />
+            {inventory.length > 0 ? inventory.map((item) =>
+                <Item productPicture={item.productPicture} productName={item.productName} productId={item.productId} stock={item.stock} />
             ) : (
             <p>We dont currently have anything in stock. If you need something give us a call and well see if we can get it.</p>
             )}
         </div>
-  );
+    );
+
+    async function populateInventoryData() {
+        const response = await fetch('api/inventory')
+        if (response.ok) {
+            const data = await response.json();
+            setInventory(data);
+        } //Need error handling
+    }
 }
 
 export default ItemList;
