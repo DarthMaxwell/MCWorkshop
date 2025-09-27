@@ -1,5 +1,6 @@
 import type { FormEvent, ChangeEvent } from "react";
 import { useState } from "react";
+import "./StorageForm.css"
 
 function StorageForm() {
     const [message, setMessage] = useState("");
@@ -62,24 +63,37 @@ function StorageForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Name"
-            />
-            <input
-                name="number"
-                value={formData.number}
-                onChange={handleChange}
-                placeholder="Number"
-            />
-            <input
-                name="plate"
-                value={formData.plate}
-                onChange={handleChange}
-                placeholder="Plate"
-            />
+            <h1>Storage Form</h1>
+            <label>
+                Name:
+                <input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Name"
+                />
+            </label>
+            
+            <label>
+                Number:
+                <input
+                    name="number"
+                    value={formData.number}
+                    onChange={handleChange}
+                    placeholder="Number"
+                />
+            </label>
+
+            <label>
+                Plate:
+                <input
+                    name="plate"
+                    value={formData.plate}
+                    onChange={handleChange}
+                    placeholder="Plate"
+                />
+            </label>
+            
             <label>
                 Pickup:
                 <input

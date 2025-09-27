@@ -4,12 +4,9 @@ import "./HomePage.css"
 function HomePage() {
     return (
         <div className="HomePage">
-            <h1>Motocycle Worshop</h1>
-            <p>Little about us thing. Love of bikes bla bla bla</p>
-
-            <p>full page banner picture showing happy customers and all the diffrenet bikes we have worked on</p>
-
-            <p>Google maps api for location along with an address</p>
+            <h1>Motocycle Workshop</h1>
+            {/* ABOUT US SECTION */}
+            {/* Google maps api to our spot and a east copy to a map system */}
 
             <div className="OtherPages">
                 <div className="section">
@@ -30,7 +27,7 @@ function HomePage() {
 
                 <div className="section reverse">
                     <div className="text">
-                        <h1>Check out our current inventory of parts</h1>
+                        <h1>Check out our inventory of parts</h1>
                         <p>
                             We keep a suply of what we consider essnestials for common oil changes and other simple
                             services. If we have somthing you need feel free to stop by and pick it up. We can also
