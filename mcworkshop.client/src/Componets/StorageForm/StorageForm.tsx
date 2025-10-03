@@ -7,7 +7,7 @@ function StorageForm() {
     const [validData, setValidData] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
-        number: "",
+        phone: "",
         plate: "",
         pickup: false
     });
@@ -28,13 +28,13 @@ function StorageForm() {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
 
-            // dosnt update the sapce #
+            // dosnt update the sapce # can use props
 
             setMessage("Successfully booked")
 
             setFormData({
                 name: "",
-                number: "",
+                phone: "",
                 plate: "",
                 pickup: false
             });
@@ -75,12 +75,12 @@ function StorageForm() {
             </label>
             
             <label>
-                Number:
+                Phonenumber:
                 <input
-                    name="number"
-                    value={formData.number}
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Number"
+                    placeholder="Phonenumber"
                 />
             </label>
 

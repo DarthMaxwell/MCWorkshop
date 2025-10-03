@@ -3,9 +3,9 @@ import Item from "../Item/Item";
 import "./ItemList.css"
 
 interface Item {
-    productPicture: string;
-    productName: string;
-    productId: string;
+    picture: string;
+    name: string;
+    itemId: string;
     stock: number;
 }
 
@@ -19,7 +19,7 @@ function ItemList() {
     return (
         <div className="ItemList">
             {inventory.length > 0 ? inventory.map((item) =>
-                <Item productPicture={item.productPicture} productName={item.productName} productId={item.productId} stock={item.stock} />
+                <Item picture={item.picture} name={item.name} itemId={item.itemId} stock={item.stock} />
             ) : (
             <p>We dont currently have anything in stock. If you need something give us a call and well see if we can get it.</p>
             )}

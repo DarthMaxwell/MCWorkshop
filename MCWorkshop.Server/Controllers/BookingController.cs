@@ -1,45 +1,45 @@
 ﻿using MCWorkshop.Server.Modles;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace MCWorkshop.Server.Controllers {
     [ApiController]
     [Route("api/[controller]")]
     public class BookingController : ControllerBase {
-        private Booking[] Bookings = new Booking[10];
+        private readonly WorkshopDbContext _context;
 
-        private readonly ILogger<BookingController> _logger;
+        //private readonly ILogger<BookingController> _logger; what is this
 
-        public BookingController(ILogger<BookingController> logger) {
-            _logger = logger;
+        public BookingController(WorkshopDbContext context) {
+            _context = context;
         }
 
+        // GET: api/booking
+        [HttpGet]
+        public async Task<List<Booking>> GetBookingsAsync() {
+            return await _context.Booking.ToListAsync();
+        }
+
+        // GET: api/booking/availability
         [HttpGet("availability")]
-        public ActionResult<IEnumerable<DayAvailability>> GetAvailability() { //Can do this monthly
+        public async Task<ActionResult<IEnumerable<DayAvailability>>> GetAvailability() {
+            var today = DateOnly.FromDateTime(DateTime.Now);
 
-            DayAvailability[] result = new[] {
-                new DayAvailability("2025-09-19"),
-                new DayAvailability("2025-09-21"),
-                new DayAvailability("2025-09-22"),
-                new DayAvailability("2025-09-25"),
-            };
+            var availability = await _context.Booking
+                .Where(b => b.Date >= today)
+                .GroupBy(b => b.Date)
+                .Select(g => new DayAvailability(g.Key) {
+                     BookingCount = g.Count()
+                 })
+                .ToListAsync();
 
-            var test = new DayAvailability("2025-09-23");
-            test.BookingCount = 5;
+            return availability;
 
-           
-
-            // list of days to be yellow or grayout
-            // if apointment is this month or past or today then we make a object for that and a counter in it if its bigger than 5 we make gray
-
-            return Ok(result.Append(test));
         }
 
-        [HttpGet(Name = "GetBookings")]
-        public IEnumerable<Booking> Get() {
-            return Bookings;
-        }
-
-        [HttpPost(Name = "PostBooking")]
+        // POST: api/booking
+        [HttpPost]
         public void Post(Booking booking) {
             // parameters wont be a booking
             // Check valid info

@@ -6,7 +6,7 @@ import "./BookingCalender.css"
 //import "@fullcalendar/daygrid/main.css";
 
 interface DayAvailability {
-    date: string;
+    date: Date;
     availability: string;
     bookingCount: number;
 }
@@ -17,19 +17,27 @@ function BookingCalendar() {
     const [formData, setFormData] = useState({ name: "", email: "" });
 
     const coloredEvents = availability.map(d => ({
-        start: d.date,
+        start: d.date.toISOString().split('T')[0],
         display: 'background',
         backgroundColor: d.availability
     }));
 
     useEffect(() => {
         fetch('api/booking/availability')
-            .then((res) => res.json())
-            .then((data) => setAvailability(data));
+            .then(res => res.json())
+            .then(data => {
+                setAvailability(
+                    data.map((d: any) => ({
+                        ...d,
+                        date: new Date(d.date) // convert string to Date
+                    }))
+                );
+            });
     }, []);
 
+
     const handleDateClick = (info: { dateStr: string; }) => {
-        const clicked = availability.find((e) => e.date === info.dateStr);
+        const clicked = availability.find((e) => e.date.toISOString().split('T')[0] === info.dateStr);
 
         if (clicked?.availability !== "gray") {
             setSelectedDate(info.dateStr);
