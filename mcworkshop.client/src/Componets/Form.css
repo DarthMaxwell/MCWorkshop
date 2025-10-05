@@ -1,0 +1,70 @@
+form {
+    width: 400px;
+    margin: 40px auto; /* center the form on the page */
+    padding: 20px;
+    border: 2px solid #ff1e56;
+    border-radius: 10px;
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    form h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #ff1e56;
+    }
+
+    form input:not([type="checkbox"]) {
+        width: 100%;
+        padding: 8px 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+        color: #fff;
+        background-color: #1f1f1f;
+    }
+
+    form input[type="checkbox"] {
+        margin-top: 8px;
+        transform: scale(1.2);
+    }
+
+    form button {
+        display: block;
+        width: 60%;
+        margin: 20px auto 0 auto; /* center the button */
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #00adb5;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        form button:hover:enabled {
+            background-color: #ff1e56;
+        }
+
+        form button:disabled {
+            cursor: not-allowed;
+        }
+
+    form p {
+        text-align: center;
+        margin-top: 15px;
+        color: #333;
+    }

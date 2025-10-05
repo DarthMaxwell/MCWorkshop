@@ -12,7 +12,7 @@
     border: 1px solid #ddd; /* subtle border */
     border-radius: 12px; /* rounded corners */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* shadow */
-    background-color: #fff; /* card background */
+    background-color: #ddd; /* card background */
 }
 
     .Bike img {
@@ -20,4 +20,16 @@
         height: 200px;
         object-fit: cover; /* keeps image square */
         margin-bottom: 10px;
+    }
+
+    .Bike h1 {
+        color: #ff1e56;
+    }
+
+    .Bike p {
+        color: black;
+    }
+
+    .Bike h3 {
+        color: #00adb5;
     }

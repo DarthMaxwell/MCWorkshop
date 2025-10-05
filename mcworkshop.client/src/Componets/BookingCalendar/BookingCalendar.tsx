@@ -14,7 +14,6 @@ interface DayAvailability {
 function BookingCalendar() {
     const [availability, setAvailability] = useState<DayAvailability[]>([]);
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
-    const [formData, setFormData] = useState({ name: "", email: "" });
 
     const coloredEvents = availability.map(d => ({
         start: d.date.toISOString().split('T')[0],
@@ -46,12 +45,6 @@ function BookingCalendar() {
         alert("Clicked: " + info.dateStr);
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        if (!selectedDate) return;
-    }
-
     return (
         <div>
             <div className="CalenderDiv">
@@ -74,47 +67,6 @@ function BookingCalendar() {
             </div>
 
             <p>{selectedDate}</p>
-
-            <h2>Book Appointment</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Date</label>
-                <input
-                    type="text"
-                    value={selectedDate}
-                    disabled
-                />
-                <label>Name</label>
-                <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                    }
-                    required
-                />
-
-                <label>Email</label>
-                <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                    }
-                    required
-                />
-                <button
-                    type="button"
-                    onClick={() => setSelectedDate(null)} //clear form too
-                >
-                    Cancel
-                </button>
-                <button
-                    type="submit"
-                >
-                    Submit
-                </button>
-
-            </form>
         </div>
     );
 }
