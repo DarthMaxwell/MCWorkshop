@@ -18,10 +18,13 @@ interface ColoredEvent {
     backgroundColor: string;
 }
 
-function BookingCalendar() {
+interface BookingCalendarProps {
+    onDateSelect: (date: string) => void;
+}
+
+function BookingCalendar({ onDateSelect }: BookingCalendarProps) {
     const [availability, setAvailability] = useState<DayAvailability[] | null>(null);
     const [coloredEvents, setColoredEvents] = useState<ColoredEvent[]>([]);
-    const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
     useEffect(() => {
         fetch('api/booking/availability')
@@ -53,37 +56,31 @@ function BookingCalendar() {
         const clicked = coloredEvents.find((e) => e.start === info.dateStr);
 
         if (clicked?.backgroundColor !== "gray") {
-            setSelectedDate(info.dateStr);
+            onDateSelect(info.dateStr);
         }
-
-        alert("Clicked: " + info.dateStr);
     };
 
     return (
-        <div>
-            <div className="CalenderDiv">
-                {(availability) ? 
-                    <FullCalendar
-                        key={availability.length}
-                        plugins={[dayGridPlugin, interactionPlugin]}
-                        initialView="dayGridMonth"   // month view only
-                        initialDate={new Date()}  // always start at current month
-                        validRange={{ start: new Date() }} // block past months
-                        headerToolbar={{
-                            start: "",
-                            center: "title",
-                            end: "prev,next" // keep navigation
-                        }}
-                        events={coloredEvents}
-                        dateClick={handleDateClick}  // handle day clicks
-                        height="100%"           // fits container height
-                        contentHeight="100%"
-                    />
-                :
-                    <Spinner/>}
-            </div>
-
-            <p>{selectedDate}</p>
+        <div className="CalenderDiv">
+            {(availability) ? 
+                <FullCalendar
+                    key={availability.length}
+                    plugins={[dayGridPlugin, interactionPlugin]}
+                    initialView="dayGridMonth"   // month view only
+                    initialDate={new Date()}  // always start at current month
+                    validRange={{ start: new Date() }} // block past months
+                    headerToolbar={{
+                        start: "",
+                        center: "title",
+                        end: "prev,next" // keep navigation
+                    }}
+                    events={coloredEvents}
+                    dateClick={handleDateClick}  // handle day clicks
+                    height="100%"           // fits container height
+                    contentHeight="100%"
+                />
+            :
+                <Spinner/>}
         </div>
     );
 }

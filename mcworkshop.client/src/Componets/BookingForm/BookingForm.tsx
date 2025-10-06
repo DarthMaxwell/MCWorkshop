@@ -1,9 +1,12 @@
 import { useState } from "react";
 import "../Form.css"
 
-function BookingForm() {
+interface BookingFormProps {
+    selectedDate: string | null;
+}
+
+function BookingForm({ selectedDate }: BookingFormProps) {
     const [formData, setFormData] = useState({ name: "", email: "" });
-    const [selectedDate, setSelectedDate] = useState<string>("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -18,9 +21,10 @@ function BookingForm() {
               <label>Date</label>
               <input
                   type="text"
-                  value={selectedDate}
-                  disabled
+                  value={selectedDate ?? ""}
+                  readOnly
               />
+
               <label>Name</label>
               <input
                   type="text"
@@ -40,15 +44,8 @@ function BookingForm() {
                   }
                   required
               />
-              <button
-                  type="button"
-                  onClick={() => setSelectedDate("")} //clear form too
-              >
-                  Cancel
-              </button>
-              <button
-                  type="submit"
-              >
+
+              <button type="submit">
                   Submit
               </button>
 
