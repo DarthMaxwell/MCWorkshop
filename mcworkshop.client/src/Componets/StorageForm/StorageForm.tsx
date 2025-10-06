@@ -1,12 +1,14 @@
 import type { FormEvent, ChangeEvent } from "react";
 import { useState } from "react";
+import "./StorageForm.css"
+import "../Form.css"
 
 function StorageForm() {
     const [message, setMessage] = useState("");
     const [validData, setValidData] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
-        number: "",
+        phone: "",
         plate: "",
         pickup: false
     });
@@ -27,13 +29,13 @@ function StorageForm() {
                 throw new Error(`HTTP error! status: ${res.status}`);
             }
 
-            // dosnt update the sapce #
+            // dosnt update the sapce # can use props
 
             setMessage("Successfully booked")
 
             setFormData({
                 name: "",
-                number: "",
+                phone: "",
                 plate: "",
                 pickup: false
             });
@@ -61,37 +63,52 @@ function StorageForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Name"
-            />
-            <input
-                name="number"
-                value={formData.number}
-                onChange={handleChange}
-                placeholder="Number"
-            />
-            <input
-                name="plate"
-                value={formData.plate}
-                onChange={handleChange}
-                placeholder="Plate"
-            />
-            <label>
-                Pickup:
-                <input
-                    type="checkbox"
-                    name="pickup"
-                    checked={formData.pickup}
-                    onChange={handleChange}
-                />
-            </label>
-            <button type="submit" disabled={!validData}>Book your spot</button>
-            {message && <p>{message}</p>}
-        </form>
+        <div className="FormDiv">
+            <form onSubmit={handleSubmit}>
+                <h1>Book your spot</h1>
+                <label>
+                    Name:
+                    <input
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Name"
+                    />
+                </label>
+
+                <label>
+                    Phonenumber:
+                    <input
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="Phonenumber"
+                    />
+                </label>
+
+                <label>
+                    Plate:
+                    <input
+                        name="plate"
+                        value={formData.plate}
+                        onChange={handleChange}
+                        placeholder="Plate"
+                    />
+                </label>
+
+                <label>
+                    Pickup:
+                    <input
+                        type="checkbox"
+                        name="pickup"
+                        checked={formData.pickup}
+                        onChange={handleChange}
+                    />
+                </label>
+                <button type="submit" disabled={!validData}>Book your spot</button>
+                {message && <p>{message}</p>}
+            </form>
+        </div>
     );
 }
 

@@ -4,21 +4,20 @@ import "./HomePage.css"
 function HomePage() {
     return (
         <div className="HomePage">
-            <h1>Motocycle Worshop</h1>
-            <p>Little about us thing. Love of bikes bla bla bla</p>
-
-            <p>full page banner picture showing happy customers and all the diffrenet bikes we have worked on</p>
-
-            <p>Google maps api for location along with an address</p>
+            <h1>Motocycle Workshop</h1>
+            {/* ABOUT US SECTION */}
+            {/* Google maps api to our spot and a east copy to a map system */}
 
             <div className="OtherPages">
                 <div className="section">
                     <div className="text">
                         <h1>Book an appointment</h1>
                         <p>
-                            We service all types of bikes and rebuild or replace damanged bikes.
-                            We follow your bikes standards with our experiance to give you a service
-                            your happy with. Some services take longer than others but most our services we can do in a day.
+                            We service all makes and models. We do full services, tires, chain kits, suspesntion rebuild.
+                            We also are able to install profomance parts like upgraded brakes. We also offer tuning.
+                            Some services take longer than others but most our services we can do in a day. Below is a button
+                            book an appointment there you can select the day and what you need done we will then contact you
+                            to confirm things.
                         </p>
                         <Link to="/booking"><a className="btn">Book you appointment here</a></Link>
                     </div>
@@ -30,7 +29,7 @@ function HomePage() {
 
                 <div className="section reverse">
                     <div className="text">
-                        <h1>Check out our current inventory of parts</h1>
+                        <h1>Check out our inventory of parts</h1>
                         <p>
                             We keep a suply of what we consider essnestials for common oil changes and other simple
                             services. If we have somthing you need feel free to stop by and pick it up. We can also
@@ -48,9 +47,8 @@ function HomePage() {
                     <div className="text">
                         <h1>Check out our bikes for sale</h1>
                         <p>
-                            We love working on bikes so during off season or when we find good deals we buy bikes
-                            and rebuild them to the highest standard to resell. We enjoy fixing these bikes and
-                            giving them a second chance on the road.
+                            We love working on bikes so natually we end up having to many. These bikes are all ready
+                            to hit the road.
                         </p>
                         <Link to="/bikes"><a className="btn">View out current selection</a></Link>
                     </div>
@@ -66,8 +64,8 @@ function HomePage() {
                         <p>
                             We have some storage space at our building allowing us to store 25 motocycles for winter.
                             We offer a fully climate controlled envroment for your bike to sit in the winter. Its very
-                            imports to make sure your bike is safly stored during the colder months. We also offer the
-                            option to pick up the bike from your place and take it to our place.
+                            important to make sure your bike is safly stored during the colder months. We also offer the
+                            option to pick up the bike from your place for a extra price.
                         </p>
                         <Link to="/storage"><a className="btn">Book your spot today</a></Link>
                     </div>

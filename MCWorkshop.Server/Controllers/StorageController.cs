@@ -17,14 +17,14 @@ namespace MCWorkshop.Server.Controllers {
         // GET: api/storage
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Storage>>> GetStorageList() {
-            return await _context.StorageList.ToListAsync();
+            return await _context.Storage.ToListAsync();
         }
 
         // GET: api/storage/space
         [HttpGet("space")]
         public async Task<int> GetSpaceAsync() {
             string CurrentYear = DateTime.Now.Year.ToString();
-            int Count = await _context.StorageList.Where((s) => s.Year.Equals(CurrentYear)).CountAsync();
+            int Count = await _context.Storage.Where((s) => s.Year.Equals(CurrentYear)).CountAsync();
 
             return MaxStorage - Count;
         }
@@ -32,7 +32,7 @@ namespace MCWorkshop.Server.Controllers {
         // POST: api/storage
         [HttpPost]
         public async Task<ActionResult<Storage>> PostStorage(Storage storage) {
-            _context.StorageList.Add(storage);
+            _context.Storage.Add(storage);
             await _context.SaveChangesAsync();
 
             return Ok(storage);

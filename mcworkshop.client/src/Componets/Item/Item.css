@@ -3,7 +3,7 @@
     height: 300px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* centers horizontally */
+    align-items: center;
     justify-content: flex-start;
     text-align: center; /* center text */
     margin: 20px; /* centers card itself if "auto" is added */
@@ -12,7 +12,7 @@
     border: 1px solid #ddd; /* subtle border */
     border-radius: 12px; /* rounded corners */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* shadow */
-    background-color: #fff; /* card background */
+    background-color: #ddd; /* card background */
 }
 
     .Item img {
@@ -23,6 +23,7 @@
     }
 
     .Item h1 {
+        color: black;
         font-size: 1.2rem;
         margin: 10px 0;
         word-wrap: break-word; /* allows wrapping */
@@ -37,4 +38,5 @@
     .Item p {
         font-weight: bold;
         margin: 5px 0;
+        color: #ff1e56;
     }
