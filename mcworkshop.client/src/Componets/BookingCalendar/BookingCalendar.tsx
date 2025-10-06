@@ -3,6 +3,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import React, { useState, useEffect } from "react";
 import "./BookingCalender.css"
+import Spinner from "../Spinner/Spinner";
 //import "@fullcalendar/daygrid/main.css";
 
 interface DayAvailability {
@@ -11,22 +12,23 @@ interface DayAvailability {
     bookingCount: number;
 }
 
-function BookingCalendar() {
-    const [availability, setAvailability] = useState<DayAvailability[]>([]);
-    const [selectedDate, setSelectedDate] = useState<string | null>(null);
+interface ColoredEvent {
+    start: string;
+    display: string;
+    backgroundColor: string;
+}
 
-    const coloredEvents = availability.map(d => ({
-        start: d.date.toISOString().split('T')[0],
-        display: 'background',
-        backgroundColor: d.availability
-    }));
+function BookingCalendar() {
+    const [availability, setAvailability] = useState<DayAvailability[] | null>(null);
+    const [coloredEvents, setColoredEvents] = useState<ColoredEvent[]>([]);
+    const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
     useEffect(() => {
         fetch('api/booking/availability')
             .then(res => res.json())
             .then(data => {
                 setAvailability(
-                    data.map((d: any) => ({
+                    data.map((d: DayAvailability) => ({
                         ...d,
                         date: new Date(d.date) // convert string to Date
                     }))
@@ -34,11 +36,23 @@ function BookingCalendar() {
             });
     }, []);
 
+    useEffect(() => {
+        if (availability) {
+            setColoredEvents(
+                availability.map(d => ({
+                    start: d.date.toISOString().split('T')[0],
+                    display: 'background',
+                    backgroundColor: d.availability
+                }))
+            );
+        }
+    }, [availability]);
+
 
     const handleDateClick = (info: { dateStr: string; }) => {
-        const clicked = availability.find((e) => e.date.toISOString().split('T')[0] === info.dateStr);
+        const clicked = coloredEvents.find((e) => e.start === info.dateStr);
 
-        if (clicked?.availability !== "gray") {
+        if (clicked?.backgroundColor !== "gray") {
             setSelectedDate(info.dateStr);
         }
 
@@ -48,22 +62,25 @@ function BookingCalendar() {
     return (
         <div>
             <div className="CalenderDiv">
-            <FullCalendar
-                key={availability.length}
-                plugins={[dayGridPlugin, interactionPlugin]}
-                initialView="dayGridMonth"   // month view only
-                initialDate={new Date()}  // always start at current month
-                validRange={{ start: new Date() }} // block past months
-                headerToolbar={{
-                    start: "",
-                    center: "title",
-                    end: "prev,next" // keep navigation
-                }}
-                events={coloredEvents}
-                dateClick={handleDateClick}  // handle day clicks
-                height="100%"           // fits container height
-                contentHeight="100%"
-                />
+                {(availability) ? 
+                    <FullCalendar
+                        key={availability.length}
+                        plugins={[dayGridPlugin, interactionPlugin]}
+                        initialView="dayGridMonth"   // month view only
+                        initialDate={new Date()}  // always start at current month
+                        validRange={{ start: new Date() }} // block past months
+                        headerToolbar={{
+                            start: "",
+                            center: "title",
+                            end: "prev,next" // keep navigation
+                        }}
+                        events={coloredEvents}
+                        dateClick={handleDateClick}  // handle day clicks
+                        height="100%"           // fits container height
+                        contentHeight="100%"
+                    />
+                :
+                    <Spinner/>}
             </div>
 
             <p>{selectedDate}</p>
