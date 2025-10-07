@@ -1,0 +1,49 @@
+.Collap {
+    width: 95%;
+    margin: auto;
+    padding: 1rem;
+}
+
+    /* Button layout */
+    .Collap button {
+        color: #ff1e56;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        font-weight: bolder;
+        font-size: xx-large;
+        background-color: #1f1f1f;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Rotate arrow smoothly */
+    .Collap .arrow {
+        transition: transform 0.3s ease;
+    }
+
+        .Collap .arrow.open {
+            transform: rotate(180deg);
+        }
+
+    /* Smooth expand/collapse */
+    .Collap .content {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+        .Collap .content.open {
+            max-height: 500px;
+            opacity: 1;
+            transition: max-height 1s ease, opacity 1s ease; /* slower showing */
+        }
+
+        .Collap .content.closing {
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.4s ease, opacity 0.4s ease; /* fast hiding */
+        }
+
