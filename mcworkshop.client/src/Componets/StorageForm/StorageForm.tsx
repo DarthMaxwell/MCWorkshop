@@ -2,15 +2,16 @@ import type { FormEvent, ChangeEvent } from "react";
 import { useState } from "react";
 import "./StorageForm.css"
 import "../Form.css"
+import type {Storage } from "../../Types/common"
 
 function StorageForm() {
     const [message, setMessage] = useState("");
     const [validData, setValidData] = useState(false);
-    const [formData, setFormData] = useState({
-        name: "",
-        phone: "",
-        plate: "",
-        pickup: false
+    const [formData, setFormData] = useState<Storage>({
+        Name: "",
+        Phone: "",
+        Plate: "",
+        Pickup: false
     });
 
     const handleSubmit = async(e: FormEvent) => {
@@ -34,10 +35,10 @@ function StorageForm() {
             setMessage("Successfully booked")
 
             setFormData({
-                name: "",
-                phone: "",
-                plate: "",
-                pickup: false
+                Name: "",
+                Phone: "",
+                Plate: "",
+                Pickup: false
             });
 
         } catch (err) {
@@ -70,7 +71,7 @@ function StorageForm() {
                     Name:
                     <input
                         name="name"
-                        value={formData.name}
+                        value={formData.Name}
                         onChange={handleChange}
                         placeholder="Name"
                     />
@@ -80,7 +81,7 @@ function StorageForm() {
                     Phonenumber:
                     <input
                         name="phone"
-                        value={formData.phone}
+                        value={formData.Phone}
                         onChange={handleChange}
                         placeholder="Phonenumber"
                     />
@@ -90,7 +91,7 @@ function StorageForm() {
                     Plate:
                     <input
                         name="plate"
-                        value={formData.plate}
+                        value={formData.Plate}
                         onChange={handleChange}
                         placeholder="Plate"
                     />
@@ -101,7 +102,7 @@ function StorageForm() {
                     <input
                         type="checkbox"
                         name="pickup"
-                        checked={formData.pickup}
+                        checked={formData.Pickup}
                         onChange={handleChange}
                     />
                 </label>

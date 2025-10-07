@@ -1,12 +1,20 @@
 import { useState } from "react";
 import "../Form.css"
+import type { Booking } from "../../Types/common";
 
 interface BookingFormProps {
     selectedDate: string | null;
 }
 
 function BookingForm({ selectedDate }: BookingFormProps) {
-    const [formData, setFormData] = useState({ name: "", email: "" });
+    const [formData, setFormData] = useState<Booking>({
+        Name: "",
+        Email: "",
+        Phone: "",
+        Bike: "",
+        Km: "",
+        Details: "",
+    });
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -28,9 +36,9 @@ function BookingForm({ selectedDate }: BookingFormProps) {
               <label>Name</label>
               <input
                   type="text"
-                  value={formData.name}
+                  value={formData.Name}
                   onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
+                      setFormData({ ...formData, Name: e.target.value })
                   }
                   required
               />
@@ -38,9 +46,9 @@ function BookingForm({ selectedDate }: BookingFormProps) {
               <label>Email</label>
               <input
                   type="email"
-                  value={formData.email}
+                  value={formData?.Email}
                   onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
+                      setFormData({ ...formData, Email: e.target.value })
                   }
                   required
               />

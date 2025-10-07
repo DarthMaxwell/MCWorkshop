@@ -1,6 +1,6 @@
 import "./Bike.css"
 
-interface Props {
+interface BikeProps {
     picture: string;
     model: string;
     brand: string;
@@ -9,7 +9,7 @@ interface Props {
     price: number;
 }
 
-const Bike = ({ picture, model, brand, km, des, price }: Props) => {
+const Bike = ({ picture, model, brand, km, des, price }: BikeProps) => {
     return (
         <div className="Bike">
             <img src={"/" + picture} />

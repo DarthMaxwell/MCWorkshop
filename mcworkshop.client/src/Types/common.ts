@@ -1,10 +1,10 @@
 export interface Storage {
-    Id: number;
+    Id?: number;
     Name: string;
     Phone: string;
     Plate: string;
     Pickup: boolean;
-    Year: string;
+    Year?: string;
 }
 
 export interface Item {
@@ -26,12 +26,12 @@ export interface Bike {
 }
 
 export interface Booking {
-    Id: number;
+    Id?: number;
     Name: string;
-    Emial: string;
+    Email: string;
     Phone: string;
     Bike: string;
     Km: string;
     Details: string;
-    Date: Date;
+    Date?: Date;
 }

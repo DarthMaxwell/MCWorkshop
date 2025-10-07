@@ -2,18 +2,10 @@ import "./BikeList.css"
 import Bike from "../Bike/Bike";
 import { useState, useEffect } from "react";
 import Spinner from "../Spinner/Spinner";
-
-interface Bike {
-    picture: string;
-    model: string;
-    brand: string;
-    km: number;
-    des: string;
-    price: number;
-}
+import type { Bike as BikeType } from "../../Types/common";
 
 function BikeList() {
-    const [bikes, setBikes] = useState<Bike[] | null>(null);
+    const [bikes, setBikes] = useState<BikeType[] | null>(null);
 
     useEffect(() => {
         populateBikeData();
@@ -29,7 +21,7 @@ function BikeList() {
         if (bikes) {
             if (bikes.length > 0) {
                 return (bikes.map((bike) =>
-                    <Bike picture={bike.picture} model={bike.model} brand={bike.brand} km={bike.km} des={bike.des} price={bike.price} />));
+                    <Bike picture={bike.Picture} model={bike.Model} brand={bike.Brand} km={bike.Km} des={bike.Des} price={bike.Price} />));
             } else {
                 return (<p>We currently dont have any motorcycles for sale (Maybe down the line we can have a email notification when we have a bike for sale or also show bikes we are working on)</p>);
             }

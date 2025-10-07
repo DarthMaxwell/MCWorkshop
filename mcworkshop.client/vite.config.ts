@@ -66,7 +66,11 @@ export default defineConfig({
             '^/api/bike': {
                 target,
                 secure: false
-            }
+            },
+            '^/api/booking': {
+                target,
+                secure: false
+            },
         },
         port: parseInt(env.DEV_SERVER_PORT || '59912'),
         https: {
