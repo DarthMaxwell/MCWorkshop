@@ -4,9 +4,10 @@ import type { Booking } from "../../Types/common";
 
 interface BookingFormProps {
     selectedDate: string;
+    clearDate: () => void;
 }
 
-function BookingForm({ selectedDate }: BookingFormProps) {
+function BookingForm({ selectedDate, clearDate }: BookingFormProps) {
     const [message, setMessage] = useState("");
     const [validData, setValidData] = useState(false);
     const [formData, setFormData] = useState<Booking>({
@@ -50,7 +51,7 @@ function BookingForm({ selectedDate }: BookingFormProps) {
                 details: "",
             });
 
-            selectedDate = "";
+            clearDate();
 
         } catch (err) {
             console.error("Error creating storage:", err);

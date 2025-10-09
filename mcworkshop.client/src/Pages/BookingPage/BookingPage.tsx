@@ -11,7 +11,7 @@ function BookingPage() {
             <h1>Booking</h1>
             <p>Bullet points of what we offer</p>
             <BookingCalendar onDateSelect={setSelectedDate} />
-            <BookingForm selectedDate={selectedDate} />
+            <BookingForm selectedDate={selectedDate} clearDate={() => setSelectedDate("")} />
         </div>
     );
 
