@@ -4,7 +4,7 @@ import BookingCalendar from "../../Componets/BookingCalendar/BookingCalendar";
 import { useState } from "react";
 
 function BookingPage() {
-    const [selectedDate, setSelectedDate] = useState < string | null>(null)
+    const [selectedDate, setSelectedDate] = useState < string>("")
 
     return (
         <div className="CalenderDiv">

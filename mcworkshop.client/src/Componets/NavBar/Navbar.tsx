@@ -12,7 +12,6 @@ function Navbar() {
                 </li>
 
                 <div className="nav-links">
-                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/booking">Booking</Link></li>
                     <li><Link to="/inventory">Inventory</Link></li>
                     <li><Link to="/bikes">Bikes</Link></li>

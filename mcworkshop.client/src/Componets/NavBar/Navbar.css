@@ -12,7 +12,7 @@ nav ul {
     align-items: center;
     list-style: none;
     margin: 0;
-    padding: 0 1rem;
+    padding: 0.5rem 1rem;
 }
 
     nav ul li {
@@ -44,6 +44,5 @@ nav ul {
         }
 
     nav ul .logo img {
-        height: 40px; /* adjust logo size */
-        margin-top: 5px; /*Get it off the top a bit more*/
+        height: 2rem;
     }

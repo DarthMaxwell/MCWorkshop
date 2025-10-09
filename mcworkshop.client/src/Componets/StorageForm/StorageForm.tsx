@@ -8,10 +8,10 @@ function StorageForm() {
     const [message, setMessage] = useState("");
     const [validData, setValidData] = useState(false);
     const [formData, setFormData] = useState<Storage>({
-        Name: "",
-        Phone: "",
-        Plate: "",
-        Pickup: false
+        name: "",
+        phone: "",
+        plate: "",
+        pickup: false
     });
 
     const handleSubmit = async(e: FormEvent) => {
@@ -35,10 +35,10 @@ function StorageForm() {
             setMessage("Successfully booked")
 
             setFormData({
-                Name: "",
-                Phone: "",
-                Plate: "",
-                Pickup: false
+                name: "",
+                phone: "",
+                plate: "",
+                pickup: false
             });
 
         } catch (err) {
@@ -71,7 +71,7 @@ function StorageForm() {
                     Name:
                     <input
                         name="name"
-                        value={formData.Name}
+                        value={formData.name}
                         onChange={handleChange}
                         placeholder="Name"
                     />
@@ -81,7 +81,7 @@ function StorageForm() {
                     Phonenumber:
                     <input
                         name="phone"
-                        value={formData.Phone}
+                        value={formData.phone}
                         onChange={handleChange}
                         placeholder="Phonenumber"
                     />
@@ -91,7 +91,7 @@ function StorageForm() {
                     Plate:
                     <input
                         name="plate"
-                        value={formData.Plate}
+                        value={formData.plate}
                         onChange={handleChange}
                         placeholder="Plate"
                     />
@@ -102,7 +102,7 @@ function StorageForm() {
                     <input
                         type="checkbox"
                         name="pickup"
-                        checked={formData.Pickup}
+                        checked={formData.pickup}
                         onChange={handleChange}
                     />
                 </label>

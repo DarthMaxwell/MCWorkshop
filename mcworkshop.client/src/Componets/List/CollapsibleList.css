@@ -36,7 +36,8 @@
     }
 
         .Collap .content.open {
-            max-height: 500px;
+            overflow-y: auto;
+            max-height: 600px;
             opacity: 1;
             transition: max-height 1s ease, opacity 1s ease; /* slower showing */
         }
@@ -47,3 +48,15 @@
             transition: max-height 0.4s ease, opacity 0.4s ease; /* fast hiding */
         }
 
+        .Collap .content.open::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .Collap .content.open::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 4px;
+        }
+
+            .Collap .content.open::-webkit-scrollbar-thumb:hover {
+                background: #ff1e56;
+            }

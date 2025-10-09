@@ -9,6 +9,8 @@
         public string Details { get; set; }
         public DateOnly Date { get; set; }
 
+        public Booking() { }
+
         public Booking(string name, string email, string phone, string bike, string km, string details, DateOnly date) {
             Name = name;
             Email = email;
