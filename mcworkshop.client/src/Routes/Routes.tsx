@@ -6,6 +6,7 @@ import InventoryPage from "../Pages/InventoryPage/InventoryPage";
 import BikesPage from "../Pages/BikesPage/BikesPage";
 import BikeStoragePage from "../Pages/BikeStoragePage/BikeStoragePage";
 import AdminPage from "../Pages/AdminPage/AdminPage";
+import ContactUsPage from "../Pages/ContactUsPage/ContactUsPage";
 
 export const router = createBrowserRouter([
     {
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
             { path: "inventory", element: <InventoryPage /> },
             { path: "bikes", element: <BikesPage /> },
             { path: "storage", element: <BikeStoragePage /> },
+            { path: "contactus", element: <ContactUsPage /> },
             { path: "admin", element: <AdminPage /> },
         ]
     }

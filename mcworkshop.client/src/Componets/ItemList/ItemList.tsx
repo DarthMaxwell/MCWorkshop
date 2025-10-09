@@ -21,7 +21,7 @@ function ItemList() {
         if (inventory) {
             if (inventory.length > 0) {
                 return (inventory.map((item) =>
-                    <Item picture={item.Picture} name={item.Name} itemId={item.ItemId} stock={item.Stock} />));
+                    <Item picture={item.picture} name={item.name} itemId={item.itemId} stock={item.stock} />));
                 } else {
                 return (<p>We dont currently have anything in stock. If you need something give us a call and well see if we can get it.</p>);
             }

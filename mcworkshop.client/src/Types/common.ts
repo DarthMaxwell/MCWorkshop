@@ -1,37 +1,37 @@
 export interface Storage {
-    Id?: number;
-    Name: string;
-    Phone: string;
-    Plate: string;
-    Pickup: boolean;
-    Year?: string;
+    id?: number;
+    name: string;
+    phone: string;
+    plate: string;
+    pickup: boolean;
+    year?: string;
 }
 
 export interface Item {
-    Id: number;
-    Picture: string;
-    Name: string;
-    ItemId: string;
-    Stock: number;
+    id: number;
+    picture: string;
+    name: string;
+    itemId: string;
+    stock: number;
 }
 
 export interface Bike {
-    Id: number;
-    Picture: string;
-    Model: string;
-    Brand: string;
-    Km: number;
-    Des: string;
-    Price: number;
+    id: number;
+    picture: string;
+    model: string;
+    brand: string;
+    km: number;
+    des: string;
+    price: number;
 }
 
 export interface Booking {
-    Id?: number;
-    Name: string;
-    Email: string;
-    Phone: string;
-    Bike: string;
-    Km: string;
-    Details: string;
-    Date?: Date;
+    id?: number;
+    name: string;
+    email: string;
+    phone: string;
+    bike: string;
+    km: string;
+    details: string;
+    date?: Date;
 }
