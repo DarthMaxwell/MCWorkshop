@@ -40,10 +40,12 @@ namespace MCWorkshop.Server.Controllers {
 
         // POST: api/booking
         [HttpPost]
-        public void Post(Booking booking) {
-            // parameters wont be a booking
-            // Check valid info
-            // create and add booking object to database
+        public async Task<ActionResult<Booking>> PostBooking(Booking booking) {
+            // DATA validation
+            _context.Booking.Add(booking);
+            await _context.SaveChangesAsync();
+
+            return Ok(booking);
         }
     }
 }

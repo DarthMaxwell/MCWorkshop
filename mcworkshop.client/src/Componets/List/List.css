@@ -1,0 +1,23 @@
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-family: Arial, sans-serif;
+}
+
+    .custom-table thead th {
+        color: #ff1e56;
+        text-align: center;
+        padding: 0.75rem 1rem;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .custom-table tbody td {
+        text-align: center;
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .custom-table tbody tr:hover {
+        background-color: #00adb5;
+    }

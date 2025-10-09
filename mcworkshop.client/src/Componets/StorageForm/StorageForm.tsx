@@ -2,11 +2,12 @@ import type { FormEvent, ChangeEvent } from "react";
 import { useState } from "react";
 import "./StorageForm.css"
 import "../Form.css"
+import type {Storage } from "../../Types/common"
 
 function StorageForm() {
     const [message, setMessage] = useState("");
     const [validData, setValidData] = useState(false);
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<Storage>({
         name: "",
         phone: "",
         plate: "",

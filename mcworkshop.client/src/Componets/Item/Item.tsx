@@ -1,13 +1,13 @@
 import "./Item.css"
 
-interface Props {
+interface ItemProps {
     picture: string;
     name: string;
     itemId: string;
     stock: number;
 }
 
-const Item = ({ picture, name, itemId, stock }: Props) => {
+const Item = ({ picture, name, itemId, stock }: ItemProps) => {
     return (
         <div className="Item">
             <img src={"/" + picture} />

@@ -32,6 +32,7 @@ namespace MCWorkshop.Server.Controllers {
         // POST: api/storage
         [HttpPost]
         public async Task<ActionResult<Storage>> PostStorage(Storage storage) {
+            // DATA VALIDATION
             _context.Storage.Add(storage);
             await _context.SaveChangesAsync();
 

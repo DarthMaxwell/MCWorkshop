@@ -6,11 +6,12 @@ function Navbar() {
         <nav>
             <ul>
                 <li className="logo">
-                    <img src="/logo.svg"/>
+                    <Link to="/">
+                        <img src="/logo.svg"/>
+                    </Link>
                 </li>
 
                 <div className="nav-links">
-                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/booking">Booking</Link></li>
                     <li><Link to="/inventory">Inventory</Link></li>
                     <li><Link to="/bikes">Bikes</Link></li>
@@ -18,7 +19,7 @@ function Navbar() {
                 </div>
 
                 <li className="contact">
-                    <Link to="/contact">Contact Us</Link>
+                    <Link to="/contactus">Contact Us</Link>
                 </li>
             </ul>
         </nav>

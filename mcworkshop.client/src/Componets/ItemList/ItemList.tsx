@@ -2,16 +2,10 @@ import { useState, useEffect } from "react";
 import Item from "../Item/Item";
 import "./ItemList.css"
 import Spinner from "../Spinner/Spinner";
-
-interface Item {
-    picture: string;
-    name: string;
-    itemId: string;
-    stock: number;
-}
+import type { Item as ItemType } from "../../Types/common";
 
 function ItemList() {
-    const [inventory, setInventory] = useState<Item[] | null>(null);
+    const [inventory, setInventory] = useState<ItemType[] | null>(null);
 
     useEffect(() => {
         populateInventoryData();

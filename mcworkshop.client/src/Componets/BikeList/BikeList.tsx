@@ -2,18 +2,10 @@ import "./BikeList.css"
 import Bike from "../Bike/Bike";
 import { useState, useEffect } from "react";
 import Spinner from "../Spinner/Spinner";
-
-interface Bike {
-    picture: string;
-    model: string;
-    brand: string;
-    km: number;
-    des: string;
-    price: number;
-}
+import type { Bike as BikeType } from "../../Types/common";
 
 function BikeList() {
-    const [bikes, setBikes] = useState<Bike[] | null>(null);
+    const [bikes, setBikes] = useState<BikeType[] | null>(null);
 
     useEffect(() => {
         populateBikeData();
